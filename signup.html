@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Saheb Ali's Education Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Saheb Ali's Hub</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="study-materials.html">Study Materials</a>
+                <a href="Graduation.html">Graduation(GU)</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn">Sign In</a>
+            </div>
+            <!-- Hamburger Icon -->
+            <div class="hamburger" onclick="toggleSidebar()">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <a href="index.html">Home</a>
+        <a href="study-materials.html">Study Materials</a>
+        <a href="Graduation.html">Graduation(GU)</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+
+    <!-- Sign Up Section -->
+    <section class="signup-container">
+        <div class="signup-box">
+            <h2>Create an Account</h2>
+            <form id="signupForm" action="#" method="post">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+            <div class="login-link">
+                <p>Already have an account? <a href="login.html">Login here</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="about.html">About Us</a>
+                <a href="careers.html">Careers</a>
+                <a href="terms.html">Terms</a>
+                <a href="privacy.html">Privacy</a>
+            </div>
+            <div class="social-links">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <p>&copy; 2025 Saheb Ali. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to handle signup form submission
+        document.getElementById("signupForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get form values
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Store user data in localStorage
+            const user = {
+                name: name,
+                email: email,
+                password: password
+            };
+            localStorage.setItem("user", JSON.stringify(user));
+
+            // Redirect to login page
+            window.location.href = "login.html";
+        });
+
+        // Toggle Sidebar
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
