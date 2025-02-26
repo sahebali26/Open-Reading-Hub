@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCERT PDF Viewer - Saheb Ali's Education Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Saheb Ali's Hub</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="study-materials.html">Study Materials</a>
+                <a href="Graduation.html">Graduation(GU)</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn">Sign In</a>
+            </div>
+            <!-- Hamburger Icon -->
+            <div class="hamburger" onclick="toggleSidebar()">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <a href="index.html">Home</a>
+        <a href="study-materials.html">Study Materials</a>
+        <a href="Graduation.html">Graduation(GU)</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+
+    <!-- PDF Viewer Section -->
+    <section class="pdf-viewer">
+        <h2 id="pdf-title">Loading...</h2>
+        <div class="pdf-container">
+            <iframe id="pdf-iframe" width="100%" height="600px"></iframe>
+        </div>
+        <div class="download-button">
+            <a id="download-link" href="#">
+                <i class="fas fa-download"></i> Download File
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="about.html">About Us</a>
+                <a href="careers.html">Careers</a>
+                <a href="terms.html">Terms</a>
+                <a href="privacy.html">Privacy</a>
+            </div>
+            <div class="social-links">
+                <a href="https://facebook.com" target="https://www.facebook.com/profile.php?id=100050209846406"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="https://x.com/sahebali369"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="https://www.instagram.com/__saheb_ali/"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <p>&copy; 2025 Saheb Ali. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to toggle sidebar
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("active");
+        }
+
+        // Function to load PDF based on query parameters
+        function loadPDF() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const className = urlParams.get('class');
+            const subject = urlParams.get('subject');
+            const medium = urlParams.get('medium');
+            const part = urlParams.get('part');
+
+            // Define file paths based on parameters
+            const filePaths = {
+                '7': {
+                    'maths': {
+                        'assamese': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%207/ASS/Ganit%20(C)%20(With%20keywords%20in%20English)%20(Mathematics)_Class%207_Assamese%20medium.pdf',
+                        'english': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%207/ENG/Maths.pdf'
+                    },
+                    'science': {
+                        'assamese': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%207/ASS/Bigyan%20(C)%20(With%20keywords%20in%20English)%20(Science)_Class%207_Assamese%20medium.pdf',
+                        'english': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%207/ENG/Science.pdf'
+                    },
+                    'social-science': {
+                'assamese': {
+                    'history': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%207/ASS/S%20Science/Samaj%20Bigyan%20(Dwitiya%20Bhag)%20(Social%20Science)_Class%207_Assamese%20medium.pdf',
+                    'geography': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%207/ASS/S%20Science/Social%20Science%20(Part%20II)%20(Social%20Science)_Class%207_English%20medium.pdf'
+                },
+                'english': {
+                    'history': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%207/ENG/S.%20Science/Our%20Past.pdf',
+                    'geography': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%207/ENG/S.%20Science/Resourse%20and%20Developement%20(Geography).pdf',
+                    'political': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%207/ENG/S.%20Science/Social%20And%20Political%20life%20II.pdf'
+                }
+            }
+        },
+                '8': {
+                    'maths': {
+                        'assamese': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%208/ASS%20M/Ganit%20%20(C)%20(With%20keywords%20in%20English)%20(Mathematics)_Class%208_Assamese%20medium.pdf',
+                        'english': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%208/ENG%20M/Maths%208.pdf'
+                    },
+                    'science': {
+                        'assamese': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%208/ASS%20M/Bigyan%20(C)%20(With%20keywords%20in%20English)%20(Science)_Class%208_Assamese%20medium.pdf',
+                        'english': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%208/ENG%20M/Science%208.pdf'
+                    },
+                    'social-science': {
+                'assamese': {
+                    'history': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%208/ASS%20M/S%20Science/Itihas%20Aru%20Rajniti%20Bigyan%20(Social%20Science)_Class%208_Assamese%20medium.pdf',
+                    'geography': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%208/ASS%20M/S%20Science/Bhugol%20Aru%20Arthonaitik%20Bigyan%20(Social%20Science)_Class%208_Assamese%20medium.pdf'
+                },
+                'english': {
+                    'history': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%208/ENG%20M/S%20Science/OUR%20PAST%208.pdf',
+                    'geography': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%208/ENG%20M/S%20Science/geo%208.pdf',
+                    'political': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%208/ENG%20M/S%20Science/Social%20and%20Political%20Life.pdf'
+                }
+            }
+        },
+                '9': {
+                    'maths': {
+                        'assamese': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%209/ASS%20M/Maths_Ganit_Assamese_IX.pdf',
+                        'english': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%209/ENG%20M/Maths_English_Class%20IX.pdf'
+                    },
+                    'science': {
+                        'assamese': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%209/ASS%20M/Maths_Ganit_Assamese_IX.pdf',
+                        'english': ''
+                    },
+                    'social-science': {
+                'assamese': {
+                    'history': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%209/ASS%20M/S.%20Science/Social%20Science%20Assamese%20Itihash%20Part%20I%20Class%20IX.pdf',
+                    'geography': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%209/ASS%20M/S.%20Science/Social%20Science%20Assamese%20Rajniti%20aru%20Arthaniti%20Bigyan%20part%20III%20Class%20IX.pdf'
+                },
+                'english': {
+                    'history': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%209/ENG%20M/S.%20Science/Part-I%20Social%20Science%20English%20History%20%20Class%20IX.pdf',
+                    'geography': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%209/ENG%20M/S.%20Science/Part-II%20Social%20Science%20English%20Geography%20%20Class%20IX.pdf',
+                    'political': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%209/ENG%20M/S.%20Science/Part-III%20Social%20Science%20English%20Political%20Science%20_%20Economics%20Class%20IX.pdf'
+                }
+            }
+        },
+                '10': {
+                    'maths': {
+                        'assamese': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%2010/ASS%20M/Ganit_assamese_Class%20X.pdf',
+                        'english': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%2010/ENG%20M/Maths%2010.pdf'
+                    },
+                    'science': {
+                        'assamese': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%2010/ASS%20M/General%20Science_Assamese_Class%20X.pdf',
+                        'english': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%2010/ENG%20M/General%20Science_Eng_Class%20X.pdf'
+                    },
+                    'social-science': {
+                'assamese': {
+                    'history': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%2010/ASS%20M/S%20Science/Part-I%20Social%20Science%20Assamese%20Itihas%20Class%20X.pdf',
+                    'geography': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%2010/ASS%20M/S%20Science/Part-II%20Social%20Science%20Assamese%20Bhugol%20Class%20X.pdf',
+                    'political': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%2010/ASS%20M/S%20Science/Part-III%20SocialScience%20English%20PoliticalScienceandEconomics%20Class%20X.pdf'
+                },
+                'english': {
+                    'history': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%2010/ENG%20M/S%20Science/Part-I%20SocialScience%20English%20History%20Class%20X.pdf',
+                    'geography': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%2010/ENG%20M/S%20Science/Part-I%20SocialScience%20English%20History%20Class%20X.pdf',
+                    'political': 'file:///S:/My%20File/MY%20SITE/Sources/NCERT%20(seba)/Class%2010/ENG%20M/S%20Science/Part-III%20SocialScience%20English%20PoliticalScienceandEconomics%20Class%20X.pdf'
+                }
+            }
+        },
+                // Add paths for Class 8, 9, and 10 similarly
+            };
+
+            // Get the file path
+            let filePath = filePaths[className]?.[subject]?.[medium];
+            if (part) {
+                filePath = filePaths[className]?.[subject]?.[medium]?.[part];
+            }
+
+            // Update the page title
+            const title = `Class ${className} - ${subject.replace('-', ' ')} - ${medium}${part ? ` (${part})` : ''}`;
+            document.getElementById('pdf-title').textContent = title;
+
+            // Load the PDF in the iframe
+            const pdfIframe = document.getElementById('pdf-iframe');
+            pdfIframe.src = filePath;
+
+            // Set the download link
+            const downloadLink = document.getElementById('download-link');
+            downloadLink.href = filePath;
+        }
+
+        // Load the PDF when the page loads
+        window.onload = loadPDF;
+    </script>
+</body>
+</html>
