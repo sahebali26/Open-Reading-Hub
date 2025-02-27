@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graduation Question Papers - Saheb Ali's Education Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Saheb Ali's Hub</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="study-materials.html">Study Materials</a>
+                <a href="Graduation.html">Graduation(GU)</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn">Sign In</a>
+            </div>
+            <!-- Hamburger Icon -->
+            <div class="hamburger" onclick="toggleSidebar()">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <a href="index.html">Home</a>
+        <a href="study-materials.html">Study Materials</a>
+        <a href="Graduation.html">Graduation(GU)</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+
+    <section class="materials">
+        <h2>Graduation Question Papers</h2>
+        <p>Download question papers for Bachelor of Arts (BA) and Bachelor of Commerce (B.Com) by year and semester.</p>
+
+        <!-- Search and Filter Section -->
+        <div class="search-filter">
+            <input type="text" id="searchInput" placeholder="Search by subject, year, or semester...">
+            <select id="yearFilter">
+                <option value="">All Years</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+            </select>
+            <select id="semesterFilter">
+                <option value="">All Semesters</option>
+                <option value="1st Semester">1st Semester</option>
+                <option value="2nd Semester">2nd Semester</option>
+                <option value="3rd Semester">3rd Semester</option>
+                <option value="4th Semester">4th Semester</option>
+                <option value="5th Semester">5th Semester</option>
+                <option value="6th Semester">6th Semester</option>
+            </select>
+            <select id="courseFilter">
+                <option value="">All Courses</option>
+                <option value="BA">BA</option>
+                <option value="B.Com">B.Com</option>
+            </select>
+            <button onclick="filterPapers()">Filter</button>
+        </div>
+
+        <!-- Table for Question Papers -->
+        <table id="questionPapersTable">
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Semester</th>
+                    <th>Subject</th>
+                    <th>Course</th>
+                    <th>Download</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be populated dynamically -->
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="about.html">About Us</a>
+                <a href="careers.html">Careers</a>
+                <a href="terms.html">Terms</a>
+                <a href="privacy.html">Privacy</a>
+            </div>
+            <div class="social-links">
+                <a href="https://facebook.com" target="https://www.facebook.com/profile.php?id=100050209846406"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="https://x.com/sahebali369"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="https://www.instagram.com/__saheb_ali/"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <p>&copy; 2025 Saheb Ali. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Sample data for question papers
+        const papers = [
+            {
+                year: 2023,
+                semester: "1st Semester",
+                subject: "Economics",
+                course: "BA",
+                filePath: ""
+            },
+            {
+                year: 2024,
+                semester: "2nd Semester",
+                subject: "Economics",
+                course: "BA",
+                filePath: "https://drive.google.com/file/d/15pSoOoS_B-iUUqhzq7FoWK_YsHHsQMys/view?usp=drive_link"
+            },
+            {
+                year: 2024,
+                semester: "2nd Semester",
+                subject: "Political",
+                course: "BA",
+                filePath: "https://drive.google.com/file/d/15vmy9wGoGvQiZJpTxnwe7oZbjmKQoOtD/view?usp=drive_link"
+            },
+            {
+            year: 2024,
+                semester: "2nd Semester",
+                subject: "Education",
+                course: "BA",
+                filePath: "https://drive.google.com/file/d/15sApbQhOMfE_FjAjra2iDWgMnY9Dk5Tw/view?usp=drive_link"
+            },
+            {
+            year: 2024,
+                semester: "2nd Semester",
+                subject: "ICT(MDC)",
+                course: "BA",
+                filePath: "https://drive.google.com/file/d/15tQZELMERKPCZnZr5L2R97BBmcolI7AP/view?usp=drive_link"
+            },
+            {
+            year: 2024,
+                semester: "2nd Semester",
+                subject: "VAC",
+                course: "BA",
+                filePath: "https://drive.google.com/file/d/15tQZELMERKPCZnZr5L2R97BBmcolI7AP/view?usp=drive_link"
+            },
+            {
+            year: 2024,
+                semester: "2nd Semester",
+                subject: "AEC(Eng Comm)",
+                course: "BA",
+                filePath: "https://drive.google.com/file/d/15ktlWlkkIyq2Ypc9uSaT4bUlhKePa9he/view?usp=drive_link"
+            },
+            // Add more papers here...
+        ];
+
+        // Function to populate the table with question papers
+        function populateTable(filteredPapers = papers) {
+            const tableBody = document.querySelector("#questionPapersTable tbody");
+            tableBody.innerHTML = "";
+
+            filteredPapers.forEach(paper => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${paper.year}</td>
+                    <td>${paper.semester}</td>
+                    <td>${paper.subject}</td>
+                    <td>${paper.course}</td>
+                    <td><a href="${paper.filePath}" target="_blank">Download</a></td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Function to filter papers based on search and filters
+        function filterPapers() {
+            const searchInput = document.getElementById("searchInput").value.toLowerCase();
+            const yearFilter = document.getElementById("yearFilter").value;
+            const semesterFilter = document.getElementById("semesterFilter").value;
+            const courseFilter = document.getElementById("courseFilter").value;
+
+            const filteredPapers = papers.filter(paper => 
+                (paper.year.toString().includes(searchInput) ||
+                 paper.semester.toLowerCase().includes(searchInput) ||
+                 paper.subject.toLowerCase().includes(searchInput) ||
+                 paper.course.toLowerCase().includes(searchInput)) &&
+                (yearFilter === "" || paper.year.toString() === yearFilter) &&
+                (semesterFilter === "" || paper.semester === semesterFilter) &&
+                (courseFilter === "" || paper.course === courseFilter)
+            );
+
+            populateTable(filteredPapers);
+        }
+
+        // Populate table on page load
+        populateTable();
+
+        // Toggle Sidebar
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
